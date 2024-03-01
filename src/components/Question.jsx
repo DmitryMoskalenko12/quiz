@@ -14,6 +14,16 @@ const [answer, setAnswer] = useState({
     isCorrect: null
 });
 
+let timer = 10000;
+
+if (answer.selectedAnswer) {
+    timer = 1000;
+}
+
+if (answer.isCorrect !== null) {
+    timer = 2000;
+}
+
 function handleSelectAnswer(answer) {
     setAnswer({
         selectedAnswer: answer,
@@ -41,7 +51,11 @@ if (answer.selectedAnswer && answer.isCorrect !== null) {
     answerState = 'answered'
 }
     return <div id="question">
-                <QuestionTimer timeout={10000} onTimeout={onSkipAnswer}/>
+                <QuestionTimer 
+                key={timer} 
+                timeout={timer} 
+                onTimeout={answer.selectedAnswer === '' ? onSkipAnswer : null} 
+                mode={answerState}/>
                 <div id="question">
                     <h2>{QUESTIONS[questionIndex].text}</h2>
                     <Answers 
