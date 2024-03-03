@@ -62,7 +62,7 @@ if (answer.selectedAnswer && answer.isCorrect !== null) {
                     answers={QUESTIONS[questionIndex].answers} 
                     selectedAnswer={answer.selectedAnswer}
                     answerState={answerState}
-                    onSelect={onSelectAnswer}/>
+                    onSelect={handleSelectAnswer}/>
                 </div>
             </div>
 }

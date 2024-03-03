@@ -10,7 +10,7 @@ export default function Summary({ userAnswers }) {
 
     return <div id="summary">
         <img src={quizCompleteImg} alt="quiz complete" />
-        <h2></h2>
+        <h2>Quiz Completed</h2>
         <div id='summary-stats'>
           <p>
             <span className='number'>{skippedAnswersShare}%</span>
@@ -31,7 +31,7 @@ export default function Summary({ userAnswers }) {
                 let cssClass = 'user-answer';
 
                 if (answer === null) {
-                    cssClass += ' skipped'
+                  cssClass += ' skipped'
                 } else if (answer === QUESTIONS[index].answers[0]) {
                   cssClass += ' correct';
                 } else {
